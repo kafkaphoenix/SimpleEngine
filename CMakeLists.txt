@@ -15,8 +15,8 @@ add_library(SimpleEngine STATIC ${SOURCE_FILES} ${HEADER_FILES})
 # Set the include directories
 target_include_directories(SimpleEngine
     PUBLIC
-        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>
-        $<INSTALL_INTERFACE:src>
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+        $<INSTALL_INTERFACE:include>
 )
 
 # Installation rules
@@ -25,10 +25,10 @@ install(TARGETS SimpleEngine
     ARCHIVE DESTINATION lib
     LIBRARY DESTINATION lib
     RUNTIME DESTINATION bin
-    INCLUDES DESTINATION src
+    INCLUDES DESTINATION include
 )
 
-install(DIRECTORY src/ DESTINATION src FILES_MATCHING PATTERN "*.h")
+install(DIRECTORY include/ DESTINATION include FILES_MATCHING PATTERN "*.h")
 
 # Export the package for find_package
 install(EXPORT SimpleEngineTargets
